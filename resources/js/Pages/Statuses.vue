@@ -19,6 +19,8 @@
                         
                             <td class=""> Title </td>
                             <td class=""> Slug </td>
+                            <td class=""> Start</td>
+                            <td class=""> End</td>
                             <td class=""> Edit </td>
                             <td class=""> Delete </td>
 
@@ -33,6 +35,8 @@
                   
                     <td>{{status.title}}</td>
                     <td>{{status.slug}}</td>
+                    <td>{{status.start}}</td>
+                    <td>{{status.end}}</td>
                 
                     <td> 
                         <button @click=" editData(status)" class="  text-sm text-green-500"> 
@@ -72,7 +76,9 @@
                                <input type="text" v-model="form.title" placeholder=" title" class=" w-full mx-auto my-3 rounded border-gray-500 shadow-sm hover:shadow-lg">
 
                                <textarea v-model="form.slug" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4" placeholder="description"></textarea>
-                               
+
+                                <input type="date" v-model="form.start" />
+                                <input type="date" v-model="form.end" />    
                              
                         <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                               <button type="submit" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-green-400 text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"> Submit</button>
@@ -163,6 +169,8 @@ export default {
             form: {
                 title: '',
                 slug:'',
+                start:'',
+                end:'',
               
             }
         }

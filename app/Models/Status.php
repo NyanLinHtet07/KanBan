@@ -9,7 +9,7 @@ class Status extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'order', 'user_id'];
+    protected $fillable = ['title', 'slug', 'order', 'user_id', 'start', 'end'];
 
     public $timestamps = false;
 

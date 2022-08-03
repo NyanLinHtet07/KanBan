@@ -9,7 +9,7 @@ class Data extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title' , 'description', 'order' ,'user_id','status_id'];
+    protected $fillable = ['title' , 'description', 'order' ,'user_id','status_id', 'start', 'end'];
 
     
     public function user()

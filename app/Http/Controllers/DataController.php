@@ -30,7 +30,7 @@ class DataController extends Controller
 
         $datas = auth() -> user() -> statuses() 
                 -> with('datas') 
-                ->get();
+                ->get(); 
 
         return Inertia::render ('Main' , [
             'datas' => $datas
@@ -49,6 +49,8 @@ class DataController extends Controller
             'title' => [ 'required' ,'max:90'],
             'description' => 'required',
             'status_id' => 'required',
+            'start' => 'nullable',
+            'end' => 'nullable',
           
         ]);
 
@@ -62,6 +64,8 @@ class DataController extends Controller
             'order' => $order,
             'user_id' => $user,
             'status_id' => $request -> status_id,
+            'start' => $request -> start,
+            'end' => $request -> end,
         ]);
 
         return redirect()->back();

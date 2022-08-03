@@ -48,6 +48,8 @@ class StatusController extends Controller
         $request -> validate ([
             'title' =>  ['required' ,'max:90'],
             'slug' => 'required',
+            'start' => 'nullable',
+            'end' => 'nullable',
 
         ]);
 
@@ -59,6 +61,8 @@ class StatusController extends Controller
             'slug' => $request -> slug,
             'order' => $order,
             'user_id'=> $user_id,
+            'start' => $request -> start,
+            'end' => $request ->end,
         ]);
 
         return redirect()->back();

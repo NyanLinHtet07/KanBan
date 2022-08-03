@@ -19,6 +19,8 @@ class CreateStatusesTable extends Migration
             $table->string('slug');
             $table->smallInteger('order') -> defult(0);
             $table->unsignedBigInteger('user_id');
+            $table->date('start') -> nullable();
+            $table->date('end') -> nullable();
             $table->timestamps();
         });
     }
