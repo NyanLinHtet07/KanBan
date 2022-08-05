@@ -5,24 +5,24 @@
             <div class=" w-full px-3 py-4 ">
 
                 <div class=" flex justify-end">
-                        <button @click="openBox()" class=" bg-slate-300 rounded-md shadow-md px-3 py-2 mx-2 my-3 border-none ring-slate-400 text-gray-800 transition duration-500 hover:bg-slate-500">
-                            Add New Status
+                        <button @click="openBox()" class=" bg-slate-300 rounded-full shadow-md px-3 py-2 mx-2 my-3 border-none ring-slate-400 text-gray-800 transition duration-500 hover:bg-slate-500">
+                            <font-awesome-icon icon="plus" class=""/>
                         </button>
                 </div>
 
 
 
                  <table class="table-auto mt-10 text-center px-4 w-full">
-                    <thead class=" bg-gray-700 text-gray-100 ">
+                    <thead class=" bg-gray-500 text-white ">
                         <tr class=" justify-around ...">
                         
                         
-                            <td class=""> Title </td>
-                            <td class=""> Slug </td>
-                            <td class=""> Start</td>
-                            <td class=""> End</td>
-                            <td class=""> Edit </td>
-                            <td class=""> Delete </td>
+                            <td class="py-2"> Title </td>
+                            <td class="py-2"> Slug </td>
+                            <td class="py-2"> Start</td>
+                            <td class="py-2"> End</td>
+                            <td class="py-2"> Edit </td>
+                            <td class="py-2"> Delete </td>
 
                         
 
@@ -33,10 +33,10 @@
 
                   
                   
-                    <td>{{status.title}}</td>
-                    <td>{{status.slug}}</td>
-                    <td>{{status.start}}</td>
-                    <td>{{status.end}}</td>
+                    <td class=" py-2">{{status.title}}</td>
+                    <td class="py-2">{{status.slug}}</td>
+                    <td class="py-2">{{status.start}}</td>
+                    <td class="py-2">{{status.end}}</td>
                 
                     <td> 
                         <button @click=" editData(status)" class="  text-sm text-green-500"> 
@@ -77,8 +77,8 @@
 
                                <textarea v-model="form.slug" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4" placeholder="description"></textarea>
 
-                                <input type="date" v-model="form.start" />
-                                <input type="date" v-model="form.end" />    
+                                <input type="date" v-model="form.start" class=" mx-2 rounded-xl px-2 py-1" />
+                                <input type="date" v-model="form.end" class=" mx-2 rounded-xl px-2 py-1"  />    
                              
                         <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                               <button type="submit" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-green-400 text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"> Submit</button>
