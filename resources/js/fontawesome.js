@@ -1,11 +1,11 @@
-import { faPhone ,faUser ,
+import { faPhone ,faUser , faArrowUp,
         faHouseChimney , faPenToSquare, 
-        faFileArrowUp, faPlus, faTrashCan} from "@fortawesome/free-solid-svg-icons";
+        faFileArrowUp, faPlus, faTrashCan, faBars} from "@fortawesome/free-solid-svg-icons";
 
 const icons = {
-    faPhone , faUser , 
+    faPhone , faUser , faArrowUp,
     faHouseChimney , faPenToSquare , 
-    faFileArrowUp , faPlus , faTrashCan
+    faFileArrowUp , faPlus , faTrashCan, faBars
 }
 
 export default icons;

@@ -2,11 +2,11 @@
     <div>
         <BreezeNavLayout>
             <div>
-                <div class=" flex justify-end px-3 border-0 border-none rounded-md bg-slate-100 mx-3 my-2">
+                <div class=" flex justify-end px-3 border-0 border-none rounded-md  mx-3 my-2">
                    
                   
 
-                    <Link :href="route('statuses.index')" class=" mx-3 my-2 px-2 py-2 rounded font-semibold text-xl text-gray-800 hover:text-green-700 border-red-100 bg-gray-100"> <font-awesome-icon icon="file-arrow-up" /> <span class=" text-sm text-gray-600"> Add New Status </span> </Link>
+                    <Link :href="route('statuses.index')" class=" mx-3 my-2 px-3 py-2 rounded-xl font-semibold text-xl text-gray-800 hover:text-green-700 border-red-100 bg-gray-100"> <font-awesome-icon icon="arrow-up" /> <span class=" text-sm text-gray-600">Statuses </span> </Link>
                 
                 </div>
             </div>
@@ -14,7 +14,7 @@
             <div class=" w-full px-3 py-4 grid grid-cols-4 gap-3 sm:grid-cols-2 lg:grid-cols-4 justify-start">
 
                 <div v-for=" status in datas" :key="status.slug">
-                    <div class=" rounded shadow-lg mx-4 my-3 bg-gray-200 ">
+                    <div class=" rounded-xl shadow-lg mx-4 my-3 bg-gray-200 ">
                         <div class=" font-semibold text-lg flex justify-between">
                              <h3 class=" p-3"> {{status.title}} </h3>
 
@@ -29,7 +29,7 @@
                                      item-key="id"
                                      @change="log">  
 
-                                <div class=" px-2 py-3 rounded-md  mx-3 my-2" v-for=" data in status.datas" :key="data.name">
+                                <div class=" px-2 py-3 rounded-md  mx-1 my-2" v-for=" data in status.datas" :key="data.name">
                                         <div class="list-group-item px-3 py-2 mx-3 my-2 rounded bg-white text-gray-900 transition duration-500 hover:bg-slate-100 hover:shadow-md ">
                                             <div class=" flex justify-between"> 
                                                 <p> {{ data.title}} </p>
