@@ -6,20 +6,26 @@
                    
                   
 
-                    <Link :href="route('statuses.index')" class=" mx-3 my-2 px-3 py-2 rounded-xl font-semibold text-xl text-gray-800 hover:text-green-700 border-red-100 bg-gray-100"> <font-awesome-icon icon="arrow-up" /> <span class=" text-sm text-gray-600">Statuses </span> </Link>
+                    <Link :href="route('statuses.index')" class=" mx-3 my-2 px-3 py-2 rounded-xl font-semibold text-xl text-gray-800 hover:text-green-700 border-red-100 bg-gray-100"> 
+                    <font-awesome-icon icon="arrow-up" /> <span class=" text-sm text-gray-600">Statuses </span> 
+                    </Link>
                 
-                </div>
+                </div> 
             </div>
             
             <div class=" w-full px-3 py-4 grid grid-cols-4 gap-3 sm:grid-cols-2 lg:grid-cols-4 justify-start">
 
-                <div v-for=" status in datas" :key="status.slug">
+                <div v-for=" status in datas" :key="status.id">
                     <div class=" rounded-xl shadow-lg mx-4 my-3 bg-gray-200 ">
                         <div class=" font-semibold text-lg flex justify-between">
                              <h3 class=" p-3"> {{status.title}} </h3>
+                           
 
                            <button @click="openBox(status.id)"> <font-awesome-icon icon="plus" class="px-3 py-4"/> </button>
 
+                        </div>
+                        <div class=" flex justify-start mr-4">
+                            <small class=" mx-3">{{status.start}}</small>  <small class="mx-3">{{status.end}}</small>
                         </div>
 
                        
