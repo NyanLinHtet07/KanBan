@@ -10,7 +10,8 @@ class PermissionController extends Controller
 {
     public function index()
     {
-        $permissions = Permission::orderBy('id', 'DESC')
+        $permissions = Permission::with('roles')
+                                    ->orderBy('id', 'DESC')
                                     ->get();
         
         $message = "Get All Permission Data";
@@ -28,6 +29,8 @@ class PermissionController extends Controller
         ]);
 
         $permission = Permission::create($request -> only('permission', 'description'));
+        $permission -> roles() -> attach($request -> input('roles'));
+
         $message = "Successfully Uploaded";
 
         return response()->json([
@@ -38,7 +41,7 @@ class PermissionController extends Controller
 
     public function show($id)
     {
-        $permission = Permission::find($id);
+        $permission = Permission::with('roles')->findOrFail($id);
 
         if(! $permission){
             return response() -> json([
@@ -46,8 +49,9 @@ class PermissionController extends Controller
             ], 404);
         }
 
-        return response() -> json(['data' => $data]);
+        return response() -> json(['data' => $permission]);
     }
+
 
     public function update(Request $request, $id)
     {
@@ -66,6 +70,8 @@ class PermissionController extends Controller
 
         $permission -> update($request -> only('permission', 'description'));
 
+        $permission -> roles() -> sync($request -> input('roles'));
+
         $message = "Successfully Updated";
         return response() -> json(['data' => $permission,
                                    'message' => $message]);
@@ -74,6 +80,8 @@ class PermissionController extends Controller
     public function destroy($id)
     {
         $permission = Permission::find($id);
+
+        $permission->roles()->detach();
         $permission -> delete();
 
         return response() -> json (['message' => 'Permission Dataed Successfully']);

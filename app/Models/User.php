@@ -50,4 +50,9 @@ class User extends Authenticatable
         return $this->hasMany(Status::class) -> orderBy('order');
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
 }

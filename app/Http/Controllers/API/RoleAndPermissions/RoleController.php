@@ -10,7 +10,8 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $roles = Role::orderBy('id', 'DESC')
+        $roles = Role::with('permissions')
+                        ->orderBy('id', 'DESC')
                         ->get();
         
         $headers = "Get All Role Datas";
@@ -31,6 +32,8 @@ class RoleController extends Controller
         ]);
 
         $roles = Role::create($request -> only('role', 'description'));
+        $roles -> permissions() -> attach($request -> input('permissions'));
+
         $headers =  "Successfully Uploaded";
 
         return response()->json([
@@ -41,7 +44,7 @@ class RoleController extends Controller
 
     public function show($id)
     {
-        $role = Role::find($id);
+        $role = Role::with('permissions')->findOrFail($id);
 
         if(!$role) {
             return response()->json([
@@ -69,9 +72,11 @@ class RoleController extends Controller
         }
 
         $role -> update($request -> only ('role', 'description'));
+        
+        $role -> permissions() -> sync($request -> input('permissions'));
 
         $headers =  "Successfully Updated";
-        return response()->json([ 'data' =>$role, 'message' => $header]);
+        return response()->json([ 'data' =>$role, 'message' => $headers]);
 
     }
 
@@ -79,6 +84,8 @@ class RoleController extends Controller
     public function destroy($id)
     {
         $role = Role::find($id);
+
+        $role->permissions()->detach();
         $role -> delete();
 
         return response()->json(['message' => 'Role Deleted Successfully']);
