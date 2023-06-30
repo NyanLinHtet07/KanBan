@@ -67,6 +67,12 @@ class AuthController extends Controller
     //     return response() -> json(['message' => 'Logged out'], 200);
     // }
 
+    public function users(Request $request){
+        $user = User::with('roles', 'roles.permissions')->get();
+        // $user = Auth::user();
+         return response() -> json(['user' => $user]);
+    }
+
     public function user(Request $request){
         $user = Auth::user();
         return response() -> json(['user' => $user]);
